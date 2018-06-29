@@ -1,0 +1,23 @@
+{
+   "Data_base": "database",
+   "KeyWord": {
+      "Psychiatry": "XXXXX"
+   },
+   "Counter": 100,
+   "Tables": {
+      "fos_user": {
+         "alias": "fos_user fosu, RandomData rd",
+         "mapping": {
+            "email": "fosu.email = |email",
+            "email_canonical": "email_canonical = rd.email",
+            "first_name": "first_name = rd.firstname",
+            "last_name": "last_name =  rd.lastname",
+            "created_by": "created_by = |User#quipment.fr",
+            "updated_by": "updated_by = |UserJ#",
+            "username": "username = |UserL#",
+            "username_canonical": "username_canonical = |UserE#"
+         },
+         "condition": " WHERE (MOD(fosu.id,1499) +1) = rd.id"
+      }
+   }
+}
