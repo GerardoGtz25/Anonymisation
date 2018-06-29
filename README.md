@@ -11,7 +11,10 @@ composer require gerardo-gtz25/anonymization
  You only have to call the class in this way:
 
 ```php
-use Anonymization\Classes\Anonymous as Anonymous;
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Anonymization\Anonymization\Anonymous as Anonymous;
 
 $a = new Anonymous();
 $a->start();
