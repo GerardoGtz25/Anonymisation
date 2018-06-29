@@ -33,7 +33,7 @@ In the first part only the database to be anonymized is indicated, in the second
 
  ```yml
  ##Database name
- Data_base: qsite
+ Data_base: database
 
  ##Insert all sensitive information that you want to change
  KeyWord:
