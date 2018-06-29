@@ -1,5 +1,5 @@
 {
-   "name": "anonymization/gtz25",
+   "name": "ggomez/anonymization",
    "description": "Module for database anonymization",
    "keywords": ["Anonymization", "Data Base", "Base de données"],
    "authors": [
