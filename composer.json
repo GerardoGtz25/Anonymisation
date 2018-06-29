@@ -1,0 +1,21 @@
+{
+   "name": "anonymization/gtz25",
+   "description": "Module for database anonymization",
+   "keywords": ["Anonymization", "Data Base", "Base de données"],
+   "authors": [
+       {
+           "name": "Gerardo Gtz",
+           "email": "ge.gut5@gmail.com"
+       }
+   ],
+    "require": {
+        "php": ">=5.3",
+        "fzaninotto/faker": "^1.7",
+        "symfony/yaml": "2.3.1"
+    },
+    "autoload": {
+       "psr-4": {
+           "Anonymization\\": "src"
+       }
+   }
+}

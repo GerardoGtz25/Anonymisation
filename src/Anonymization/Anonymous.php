@@ -47,10 +47,6 @@ class Anonymous {
 
     public function start(){
 
-        echo "echo";
-
-        die;
-
         $this->blindeDatas();
 
         foreach ($this->tables as $key => $table){
@@ -169,8 +165,6 @@ class Anonymous {
                 $q->where($this->tables[key($this->tables)]['condition']);
 
             }
-
-//            var_dump($q->sql);
 
             $a = "set @rowid:= $this->counter";
             $stmt = $this->db->prepare($a);
