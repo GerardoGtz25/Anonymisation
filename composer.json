@@ -3,6 +3,7 @@
    "description": "Module for database anonymization",
    "keywords": ["Anonymization", "Data Base", "Base de données"],
    "minimum-stability": "stable",
+   "license": "MIT",
    "authors": [
        {
            "name": "Gerardo Gtz",
