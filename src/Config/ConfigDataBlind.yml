@@ -10,23 +10,6 @@ Counter: 10000
 
 ##Tables that you want to change
 Tables:
-  protocol:
-    alias: protocol p, RandomData rd, fos_user fosu
-    mapping:
-      name: p.name = CONCAT( 'Protocol #', RIGHT( CONCAT( '00000', CONVERT(p.id, char)),5)),
-     	project: p.project = CONCAT( 'Project #', RIGHT( CONCAT( '00000', CONVERT(p.id, char)),5)),
-     	alternativeName: p.alternativeName = '',
-     	drugMolecule: p.drugMolecule = CONCAT( 'Drug #', RIGHT( CONCAT( '00000', CONVERT(p.id, char)),5)),
-     	contractHoldingOffice: p.contractHoldingOffice = CONCAT( 'Holding #', RIGHT( CONCAT( '00000', CONVERT(p.id, char)),5)),
-      ecgAnalysingPlatform:	p.ecgAnalysingPlatform = 'ECG Platform',
-     	sponsorContactDetails: p.sponsorContactDetails = CONCAT( rd.firstname, ' ', rd.lastname, ', ', rd.email, ', ', rd.phone),
-     	globalPmContactDetails: p.globalPmContactDetails = CONCAT( rd.firstname, ' ', rd.lastname, ', ', rd.email, ', ', rd.phone),
-     	specialComments: p.specialComments = '',
-     	dataManager: p.dataManager = CONCAT( rd.firstname, ' ', rd.lastname),
-     	created_by: p.created_by = fosu.username,
-     	updated_by: p.updated_by = fosu.username
-    condition: " WHERE (MOD(p.id,1499) +1) = rd.id AND p.pm = fosu.id"
-
   fos_user:
     alias: fos_user fosu, RandomData rd
     mapping:
