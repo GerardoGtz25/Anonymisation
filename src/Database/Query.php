@@ -4,6 +4,7 @@ namespace Anonymization\Database;
 class Query {
 
     public $sql = '';
+    public $variables = [];
 
     public function __get($attr_name){
 
@@ -33,7 +34,7 @@ class Query {
 
             if (isset($faker[1])){
 
-                $flag = strpos($faker[1], '#');
+                $flag = strpos($faker[1], '*');
 
                 if($flag === false){
 
@@ -48,8 +49,13 @@ class Query {
                 }else{
 
                     unset($parametres[$key]);
-                    $format = explode('#', $faker[1]);
-                    $this->sql .= $this->concat($faker[0], $format[0], $format[1]);
+                    $format = explode('*', $faker[1]);
+
+                    $variable = $this->setVariable($faker[0]);
+
+                    $this->sql .= $this->concat($faker[0], $format[0], $format[1], $variable);
+
+
 
                 }
 
@@ -61,11 +67,23 @@ class Query {
 
     }
 
-    public function concat ($field, $format1, $format2) {
 
-        $concat = "'$format1', " . "@rowid:=@rowid+1, " .  "'$format2'";
+    public function concat ($field, $format1, $format2, $variable) {
+
+        $concat = "'$format1', " . "$variable, " .  "'$format2'";
         $set = "$field CONCAT($concat), ";
         return $set;
+
+    }
+
+    public function setVariable($field){
+
+        $clean_equal = str_replace("=", "", "$field");
+        $clean_space = str_replace(" ", "", "$clean_equal");
+        array_push($this->variables, "@v$clean_space");
+        $variable = "@v$clean_space:=@v$clean_space+1";
+
+        return $variable;
 
     }
 
@@ -168,6 +186,14 @@ class Query {
                 echo "No se ingreso un valor valido en el archivo de configuracion";
         }
 
+    }
+
+    /**
+     * @return array
+     */
+    public function getVariables()
+    {
+        return $this->variables;
     }
 
 }

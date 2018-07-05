@@ -8,7 +8,7 @@ composer require gerardo-gtz25/anonymization
 ```
 ## Module for database anonymisation
 
- You only have to call the class in this way:
+You only have to call the class in this way:
 
 ```php
 <?php
@@ -20,13 +20,13 @@ $a = new Anonymous();
 $a->start();
 ```
 
- The anonymous class constructor accepts two parameters:
+The anonymous class constructor accepts two parameters:
 
 * Anonymization Configuration File
 * Anonymization Configuration DataBase connection
 
  However, the constructor uses by default the files that are in the path:
- __vendor/gerardo-gtz25/anonymization/src/Config__
+ __vendor/ggomez/anonymization/src/Config__
 
 One of the most important parts of anonymization is the configuration file. In the path above, you will find examples of the 3 allowed formats YML, JSON, PHP.
 
@@ -36,8 +36,8 @@ In the first part only the database to be anonymized is indicated, in the second
 
  ```yml
  ##Database name
- Data_base: database
-
+ Data_base: Test
+ 
  ##Insert all sensitive information that you want to change
  KeyWord:
    Psychiatry: XXXX

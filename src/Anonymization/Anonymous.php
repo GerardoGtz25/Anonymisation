@@ -16,14 +16,12 @@ class Anonymous {
     private $queries = [];
     private $counter;
 
-    public function __construct($configAnonymous = "/../Config/ConfigDataBlind.yml", $configDB = "/../Config/config.ini"){
+    public function __construct($configAnonymous = "./app/config/config_data_blind.yml", $configDB = "/../Config/config.ini"){
 
         Connection::setConfig(__DIR__ . $configDB);
         $this->db = Connection::getConnection();
         $type = pathinfo($configAnonymous);
         $extension = ucfirst($type['extension']);
-
-
 
         if ($extension == 'Php'){
 
@@ -49,11 +47,11 @@ class Anonymous {
 
         $this->blindeDatas();
 
-        foreach ($this->tables as $key => $table){
-
-            $this->search_table($key);
-
-        }
+//        foreach ($this->tables as $key => $table){
+//
+//            $this->search_table($key);
+//
+//        }
 
         $this->create_query();
         $this->cleanDataBase();
@@ -152,7 +150,6 @@ class Anonymous {
     }
 
     public function create_query (){
-
         $q = new Query();
 
         while (current($this->tables)) {
@@ -166,9 +163,14 @@ class Anonymous {
 
             }
 
-            $a = "set @rowid:= $this->counter";
-            $stmt = $this->db->prepare($a);
-            $stmt->execute();
+            $v = $q->getVariables();
+
+            foreach ($v as $variable) {
+                $a = "set $variable:=$this->counter";
+                $stmt = $this->db->prepare($a);
+                $stmt->execute();
+            }
+
             $stmt = $this->db->prepare($q->sql);
             $stmt->execute();
 
