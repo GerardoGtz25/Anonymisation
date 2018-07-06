@@ -12,8 +12,7 @@
    ],
     "require": {
         "php": "^5.3.3 || ^7.0",
-        "fzaninotto/faker": "^1.7",
-        "symfony/yaml": "2.3.1"
+        "fzaninotto/faker": "^1.7"
     },
     "autoload": {
        "psr-4": {
