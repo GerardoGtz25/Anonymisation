@@ -54,21 +54,22 @@ In the first part only the database to be anonymized is indicated, in the second
        email_canonical: email_canonical = rd.email
        first_name: first_name = rd.firstname
        last_name: last_name =  rd.lastname
-       created_by: created_by = |User#gmail.fr
-       updated_by: updated_by = |UserJ#
-       username: username = |UserL#
-       username_canonical: username_canonical = |UserE#
+       created_by: created_by = |User#*gmail.fr
+       updated_by: updated_by = |UserJ#*
+       username: username = |UserL#*
+       username_canonical: username_canonical = |UserE#*
      condition: " WHERE (MOD(fosu.id,1499) +1) = rd.id"
  ```
  There are 3 options for data anonymisation:
 
  *	Generate data from a given format
-   * In this case we use sql code to reuse the information
+   * In this case the character (*) is going to become a number, for exmple if we have a user's name in this field we are going to get a number instead of a name or (*)
+   
 ```yml
 tiers:
     alias: tiers t, RandomData rd
     mapping:
-     raison_sociale: t.raison_sociale =  CONCAT(t.type, ' ',RIGHT( CONCAT( '00000', CONVERT(t.id, char)),5))
+     username: username = |User#*
 ```    
 * Generate new data from the RandomData table
   * When executing the library, a temporary table is loaded containing random data that can be used to anonymize complete tables
