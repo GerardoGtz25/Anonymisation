@@ -63,13 +63,13 @@ In the first part only the database to be anonymized is indicated, in the second
  There are 3 options for data anonymisation:
 
  *	Generate data from a given format
-   * In this case the character "asterisk" is going to become a number, for exmple if we have a user's name in this field we are going to get a number instead of a name or "asterisk"
+   * In this case the character "asterisk" is going to become a number, for exmple if we have a user's name in this field we are going to get a generic format with successive numbers
    
 ```yml
 tiers:
-    alias: tiers t, RandomData rd
+    alias: fos_user fos, RandomData rd
     mapping:
-     username: username = |User#*
+     username: fos.username = |User#*
 ```    
 * Generate new data from the RandomData table
   * When executing the library, a temporary table is loaded containing random data that can be used to anonymize complete tables
