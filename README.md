@@ -54,7 +54,7 @@ In the first part only the database to be anonymized is indicated, in the second
        email_canonical: email_canonical = rd.email
        first_name: first_name = rd.firstname
        last_name: last_name =  rd.lastname
-       created_by: created_by = |User#quipment.fr
+       created_by: created_by = |User#gmail.fr
        updated_by: updated_by = |UserJ#
        username: username = |UserL#
        username_canonical: username_canonical = |UserE#
