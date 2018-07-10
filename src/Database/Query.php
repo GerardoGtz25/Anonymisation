@@ -55,8 +55,6 @@ class Query {
 
                     $this->sql .= $this->concat($faker[0], $format[0], $format[1], $variable);
 
-
-
                 }
 
             }
@@ -72,6 +70,7 @@ class Query {
 
         $concat = "'$format1', " . "$variable, " .  "'$format2'";
         $set = "$field CONCAT($concat), ";
+
         return $set;
 
     }
