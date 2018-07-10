@@ -15,7 +15,7 @@ class Anonymous {
     private $keyWord = [];
     private $counter;
 
-    public function __construct($configAnonymous = "./app/config/config_data_blind.yml", $configDB = "/../Config/config.ini"){
+    public function __construct($configAnonymous = "/../Config/ConfigDataBlind.yml", $configDB = "/../Config/config.ini"){
 
         Connection::setConfig(__DIR__ . $configDB);
         $this->db = Connection::getConnection();
