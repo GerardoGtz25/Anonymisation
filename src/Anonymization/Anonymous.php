@@ -125,7 +125,7 @@ class Anonymous {
     public function scannerDataBase(){
         echo "\nScanning sensitive information";
 
-        if(!empty($keyWord)){
+        if(!empty($this->keyWord)){
 
             $query = "SELECT distinct TABLE_NAME from INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '".$this->database."'";
             $stmt = $this->db->prepare($query);
