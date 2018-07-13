@@ -4,7 +4,7 @@
 Note: The data is permanently modified
 ## Installation
 ```
-composer require gerardo-gtz25/anonymization
+composer require ggomez/anonymization
 ```
 ## Module for database anonymisation
 
